@@ -7,38 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="#first_page" class="nav">Home</a>
-        <a href="#contact" class="nav">Contact</a>
-    </nav>
-    <div id="first_page">
-        <div class="text">
-            <h1><b>ITF-Lab-Website</b></h1>
-            <h2><p>by Asitara Phumdokmai</p></h4>
-            <a href="https://youtu.be/xvFZjo5PgG0?si=aR3uBj6pO5TgCeAs" class="button"><button type="button">Surprise!!</button></a>
+    <h1 id="User">Asitara Phumdokmai 67070199</h1>
+    <div class="profile" id="Profile">
+        <div class="notify"><p>1</p></div>
+    </div>
+    <div>
+        <div>
+            <label>Set username</label><input type="text" id="name"><button onclick="setName()">Set</button>
+        </div>
+        <div>
+            <label>Set image</label><input type="text" id="img"><button onclick="setImg()">Set</button>
         </div>
     </div>
+    <script>
+        const username = document.getElementById("User")
+        const u_input = document.getElementById("name")
+        const img = document.getElementById("Profile")
+        const i_input = document.getElementById("img")
 
-    <div id="contact">
-        <div class="text">
-            <h1><b>Contact</b></h1>
-            <div class="img">
-                <div>
-                    <a href="https://www.instagram.com/hun_dredz" target="_blank"><img src="assets/Instagram_icon_pic.png"></a>
-                    <p>Instagram</p>
-                </div>
-                <div>
-                    <a href="https://github.com/Hundredzz" target="_blank"><img src="assets/github_logo_pic.png" style="background-color: aliceblue;"></a>
-                    <p>Github</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <a href="https://github.com/Hundredzz" target="_blank" class="nav">github</a>
-        <a href="https://www.instagram.com/hun_dredz" target="_blank" class="nav">instagram</a>
-        <a href="https://youtu.be/xvFZjo5PgG0?si=aR3uBj6pO5TgCeAs" target="_blank" class="nav">rick</a>
-    </footer>
+        function setName(){
+            username.textContent = u_input.value + " 67070199";
+            u_input.value = ""
+        }
+        function setImg(){
+            img.style.backgroundImage = "url(" + i_input.value + ")";
+            i_input.value = ""
+        }
+    </script>
 </body>
 </html>

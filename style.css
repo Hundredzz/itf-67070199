@@ -15,103 +15,40 @@
 html{scroll-behavior: smooth;}
 
 body{
-    background-color: var(--lightblack);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
     height: auto;
     margin: 1vh;
     padding: 1vh;
 }
 
-nav {
-    width: 96vw;
-    position: fixed;
-    display: flex;
-    justify-content: flex-start;
-    gap: 1.5vw;
-}
-
-
-
-.nav{
-    color: var(--white);
-    text-decoration: none;
-    text-decoration-color: var(--white);
+.profile{
+    width: 183px;
+    height: 183px;
+    border-radius: 100%;
+    background-image: url(https://th.bing.com/th/id/R.3143a18a98ee21cef2e13712add2b8e9?rik=qdJyDZHK3qg5lg&pid=ImgRaw&r=0;);
+    background-size: cover;
+    background-position: center;
     position: relative;
-    overflow: hidden;
-    font-size: 1rem;
 }
 
-.nav::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px; /* Set the desired underline thickness */
-    width: 0;
-    background-color: var(--white);
-    transition: width 0.5s ease-in-out;
-}
-
-.nav:hover::before {
-    width: 100%;
-}
-
-.nav:hover {
-    color: var(--white);
-    text-decoration: none; /* Remove the default underline on hover */
-    font-size: 1rem;
-}
-
-.button{
+.notify{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: crimson;
     display: flex;
-    width: auto;
-    justify-content: center;
-}
-
-button{
-    margin-top: 2vh;
-    color: var(--black);
-    background-color: var(--lightgrey);
-    height: 3vh;
-    width: 9vh;
-    font-size: 1.2em;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 2px;
-    border-color: var(--white);
-}
-
-button:hover{
-    cursor: pointer;
-}
-
-#first_page, #contact{
-    height: 95vh;
-    display: grid;
     justify-content: center;
     align-items: center;
-}
-
-h1{
-    font-size: 5em;
-    color: var(--white);
-    text-align: center;
-}
-
-img{
-    height: 8vh;
-}
-
-.img{
-    display: flex;
-    margin-top: 3vh;
-    justify-content: space-around;
+    position: absolute;
+    bottom: 6px;
+    right: 12px;
 }
 
 p{
     text-align: center;
-    color: var(--white);
-}
-
-footer{
-    text-align: right;
+    color: var(--black);
 }
