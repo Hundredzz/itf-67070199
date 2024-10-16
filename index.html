@@ -7,17 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="User">Asitara Phumdokmai 67070199</h1>
+    <a href="https://github.com/Hundredzz" target="_blank"><h1 id="User">Asitara Phumdokmai 67070199</h1></a>
     <div class="profile" id="Profile">
         <div class="notify"><p>1</p></div>
     </div>
-    <div>
-        <div>
-            <label>Set username</label><input type="text" id="name"><button onclick="setName()">Set</button>
+    <div class="input-con">
+        <div class="in">
+            <label>Set the Username</label><input type="text" id="name" placeholder="Enter Username"><button onclick="setName()">Set</button>
         </div>
-        <div>
-            <label>Set image</label><input type="text" id="img"><button onclick="setImg()">Set</button>
+        <div class="in">
+            <label>Set the profile image URL</label><input type="text" id="img" placeholder="Enter Image URL"><button onclick="setImg()">Set</button>
         </div>
+        <h3>Phone Number List</h3>
+        <div class="in">
+            <input type="text" id="name-id" placeholder="Name">
+
+            <input type="text" id="tel-id" placeholder="Tel">
+            <button onclick="updateRow()">ADD</button>
+            <button onclick="saveCSV()">EXPORT</button>
+        </div>
+        <table id="table-id">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th class="ph">Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
     <script>
         const username = document.getElementById("User")
@@ -33,6 +52,57 @@
             img.style.backgroundImage = "url(" + i_input.value + ")";
             i_input.value = ""
         }
+
+        let count = 0;
+        let phonenumber = [];
+
+        function updateRow() {
+            count += 1;
+
+            const row = document.createElement("tr");
+
+            const cellNo = document.createElement("td");
+            const cellName = document.createElement("td");
+            const cellTel = document.createElement("td");
+
+            const nameValue = document.getElementById("name-id").value;
+            const telValue = document.getElementById("tel-id").value;
+
+            cellNo.textContent = count;
+            cellName.textContent = nameValue;
+            cellTel.textContent = telValue;
+
+            row.appendChild(cellNo);
+            row.appendChild(cellName);
+            row.appendChild(cellTel);
+
+            const table = document.getElementById("table-id").querySelector("tbody");
+            table.appendChild(row);
+
+            let arr = [];
+            arr.push(count);
+            arr.push(nameValue);
+            arr.push(telValue);
+            phonenumber.push(arr);
+
+            console.log(phonenumber);
+
+            document.getElementById("name-id").value = "";
+            document.getElementById("tel-id").value = "";
+        }
+
+        function saveCSV() {
+            const csvContent = phonenumber.map(row => row.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "data.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
     </script>
 </body>
 </html>
